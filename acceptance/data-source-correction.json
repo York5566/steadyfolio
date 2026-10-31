@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-18",
+  "issue": "Generated prices were labeled with actual stock tickers, making synthetic losses appear to be historical 0050 performance.",
+  "correction": "Load website market data automatically. Missing market data produces an empty state, not a synthetic result. Explicit examples use DEMO tickers.",
+  "verifiedHistoricalResult": {
+    "symbol": "0050.TW",
+    "source": "Existing local research dataset, dividend and split adjusted",
+    "requestedStart": "2016-01-01",
+    "actualStart": "2016-01-04",
+    "end": "2025-12-31",
+    "currency": "TWD",
+    "initial": 100000,
+    "monthly": 10000,
+    "investmentDay": 5,
+    "buyFeeBps": 0,
+    "invested": 1300000,
+    "final": 4281908.986839697,
+    "gain": 2981908.9868396968,
+    "xirr": 0.20942971582967174
+  },
+  "browserChecked": [
+    "Initial page loads website market data and shows the positive historical result without source selection",
+    "Explicit fictional demo shows DEMO A, DEMO B, DEMO C rather than real stock names"
+  ]
+}

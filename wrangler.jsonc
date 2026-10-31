@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "steadyfolio",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "steadyfolio",
+    "database_id": "00000000-0000-0000-0000-000000000000",
+    "migrations_dir": "migrations"
+  }],
+  "ratelimits": [
+    {"name": "READ_LIMITER", "namespace_id": "172601", "simple": {"limit": 90, "period": 60}},
+    {"name": "WRITE_LIMITER", "namespace_id": "172602", "simple": {"limit": 5, "period": 60}},
+    {"name": "MARKET_LIMITER", "namespace_id": "172603", "simple": {"limit": 15, "period": 60}}
+  ],
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_ORIGIN": "https://your-domain.example",
+    "ALLOWED_ORIGINS": "https://your-domain.example",
+    "SHARING_ENABLED": "false",
+    "MARKET_FETCH_ENABLED": "true",
+    "DAILY_MARKET_FETCH_LIMIT": "800",
+    "TURNSTILE_SITE_KEY": "",
+    "MAX_SHARE_BYTES": "524288",
+    "DAILY_SHARE_LIMIT": "30",
+    "TOTAL_SHARE_BYTES_LIMIT": "220000000"
+  },
+  "triggers": {"crons": ["17 3 * * *"]},
+  "observability": {"enabled": false}
+}

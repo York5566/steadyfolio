@@ -1,0 +1,12 @@
+{
+  "checkedDate": "2026-10-20",
+  "scope": "Local Wrangler and D1, in-app Chromium; not a production deployment",
+  "checks": [
+    "Default 0050/VTI/QQQ analysis loads actual historical data automatically",
+    "NVDA entered outside the suggested list, downloaded and included in the comparison",
+    "Bare Taiwan symbol 2330 resolves to 2330.TW and is added through automatic fetching",
+    "CSV input is absent in both Traditional Chinese and English",
+    "390px Traditional Chinese and English: document clientWidth and scrollWidth both 375px",
+    "English Fetch & add dialog remains readable with the symbol guidance and action button"
+  ]
+}

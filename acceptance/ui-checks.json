@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-18T04:25:22.339Z",
+  "scope": "Manual browser acceptance in the in-app Chromium browser; local services only",
+  "viewports": [
+    {
+      "locale": "zh-Hant",
+      "viewport": 390,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    {
+      "locale": "en",
+      "viewport": 390,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    {
+      "locale": "zh-Hant",
+      "viewport": 1440,
+      "clientWidth": 1425,
+      "scrollWidth": 1425
+    }
+  ],
+  "checks": [
+    "Labeled synthetic example and local historical market loading",
+    "Same original share result in a second tab",
+    "Continue in USD without changing original TWD share",
+    "Dirty settings notice",
+    "Invalid weights rejected and corrected",
+    "Analysis JSON download and import round-trip",
+    "Three-row CSV import gives 102000 from 100000 at prices 100 to 102",
+    "Drawdown chart and three-year viewing range",
+    "PNG download inspected: 1440x900, legend, dates, currency and synthetic label",
+    "Daily CSV download includes currency and synthetic status",
+    "Escape closes native dialog",
+    "No new browser console warnings or errors in final smoke window"
+  ],
+  "notTested": [
+    "Real production Turnstile",
+    "Cloud deployment",
+    "Physical mobile devices",
+    "Cross-network share access"
+  ]
+}

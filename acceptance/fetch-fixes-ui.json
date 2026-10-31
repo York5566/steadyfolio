@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-21T02:25:45.777Z",
+  "runtime": "Local built app in the in-app browser, not production",
+  "checks": [
+    {
+      "check": "Invalid 90% weight opens a focused dialog and displays the error beside Compare",
+      "passed": true
+    },
+    {
+      "check": "Old-result date and requested date remain distinct; sharing is disabled while invalid or updating",
+      "passed": true
+    },
+    {
+      "check": "zh-Hant and en at 390px have visible error dialogs without horizontal page overflow",
+      "passed": true
+    },
+    {
+      "check": "0050-only requested 2026-10-20 ends at 2026-10-20",
+      "passed": true
+    },
+    {
+      "check": "0050/VTI/QQQ in TWD requested 2026-10-20 ends at common date 2026-10-19 and sharing re-enables after success",
+      "passed": true
+    },
+    {
+      "check": "After the US close, the same 0050/VTI/QQQ requested end 2026-10-20 updates through 2026-10-20",
+      "passed": true
+    }
+  ]
+}

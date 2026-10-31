@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-20T15:39:25.585Z",
+  "runtime": "Node SQLite in-memory, empty database, real provider HTTP; not a Cloudflare production test",
+  "checks": [
+    {
+      "symbol": "0050.TW",
+      "rows": 59,
+      "from": "2025-05-02",
+      "to": "2025-07-31",
+      "source": "TWSE closes + Yuanta dividends + TWSE splits",
+      "pendingResponses": 1
+    },
+    {
+      "symbol": "2330.TW",
+      "rows": 64,
+      "from": "2025-05-02",
+      "to": "2025-07-31",
+      "source": "Yahoo Finance · dividend & split adjusted",
+      "pendingResponses": 0
+    },
+    {
+      "symbol": "6488.TWO",
+      "rows": 64,
+      "from": "2025-05-02",
+      "to": "2025-07-31",
+      "source": "Yahoo Finance · dividend & split adjusted",
+      "pendingResponses": 0
+    },
+    {
+      "symbol": "AAPL",
+      "rows": 63,
+      "from": "2025-05-01",
+      "to": "2025-07-31",
+      "source": "Yahoo Finance · dividend & split adjusted",
+      "pendingResponses": 0
+    },
+    {
+      "symbol": "USDTWD",
+      "rows": 63,
+      "from": "2025-05-01",
+      "to": "2025-07-31",
+      "source": "Federal Reserve H.10 · TWD per USD",
+      "pendingResponses": 0
+    },
+    {
+      "check": "0050 normalized total-return path matches desktop cache across split and dividend",
+      "maxAbsoluteDifference": 6.661338147750939e-16
+    },
+    {
+      "check": "cache reuse makes no upstream request",
+      "passed": true
+    }
+  ]
+}

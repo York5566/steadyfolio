@@ -1,0 +1,15 @@
+{
+  "testedAt": "2026-10-21T02:22:05.759Z",
+  "scope": "Local Wrangler / real local D1; production Turnstile not exercised",
+  "checks": [
+    "Explicit loopback development mode",
+    "D1 stores a bounded snapshot and returns independent random read and delete secrets",
+    "Shared input and recomputed results exactly match the original",
+    "Invalid deletion key does not remove a snapshot",
+    "Revocation immediately removes API access",
+    "Untrusted cross-origin writes fail",
+    "Missing-origin share writes fail",
+    "Oversized payload and unknown API paths fail without a valid insert",
+    "Market catalogue API responds"
+  ]
+}

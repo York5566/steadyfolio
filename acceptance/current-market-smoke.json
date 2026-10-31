@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-21T02:25:11.591Z",
+  "runtime": "Local Wrangler HTTP and browser-equivalent engine; not a production test",
+  "requestedEnd": "2026-10-20",
+  "actualEnd": "2026-10-20",
+  "milliseconds": 199,
+  "checks": [
+    {
+      "symbol": "0050.TW",
+      "milliseconds": 58,
+      "pendingResponses": 0,
+      "first": "2015-01-05",
+      "last": "2026-10-20",
+      "count": 2869,
+      "source": "TWSE closes + Yuanta dividends + TWSE splits"
+    },
+    {
+      "symbol": "VTI",
+      "milliseconds": 20,
+      "pendingResponses": 0,
+      "first": "2015-01-02",
+      "last": "2026-10-20",
+      "count": 2967,
+      "source": "Yahoo Finance · dividend & split adjusted"
+    },
+    {
+      "symbol": "QQQ",
+      "milliseconds": 17,
+      "pendingResponses": 0,
+      "first": "2015-01-02",
+      "last": "2026-10-20",
+      "count": 2967,
+      "source": "Yahoo Finance · dividend & split adjusted"
+    },
+    {
+      "symbol": "USDTWD",
+      "milliseconds": 15,
+      "pendingResponses": 0,
+      "first": "2015-01-02",
+      "last": "2026-10-16",
+      "count": 2947,
+      "source": "Federal Reserve H.10 · TWD per USD"
+    }
+  ]
+}

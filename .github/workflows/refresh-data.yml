@@ -1,0 +1,30 @@
+name: Refresh licensed dataset
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 23 * * 1-5'
+permissions:
+  contents: read
+concurrency:
+  group: licensed-market-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: vars.LICENSED_DATA_PIPELINE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: licensed-data
+    timeout-minutes: 25
+    env:
+      LICENSED_DATA_URL: ${{ secrets.LICENSED_DATA_URL }}
+      MARKET_API_ORIGIN: ${{ vars.MARKET_API_ORIGIN }}
+      MARKET_ADMIN_TOKEN: ${{ secrets.MARKET_ADMIN_TOKEN }}
+      DATA_RIGHTS_CONFIRMED: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx tsx scripts/fetch-licensed.ts
+      - run: npm run data:import -- data-private/licensed-market.json

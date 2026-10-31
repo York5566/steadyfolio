@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+coverage/
+test-results/
+playwright-report/
+data-private/
+release/
+*.local
+*.log
+wrangler.deploy.json
+__pycache__/
+*.pyc

@@ -1,0 +1,20 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { productionOrigin } from './site-origin';
+
+const config = JSON.parse(await readFile('wrangler.jsonc','utf8'));
+const siteUrl = productionOrigin(process.env.SITE_URL);
+if (!siteUrl) throw new Error('Set SITE_URL to the actual HTTPS origin before a production build.');
+const dbId = process.env.CLOUDFLARE_D1_DATABASE_ID || config.d1_databases[0].database_id;
+if (!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(dbId) || dbId === '00000000-0000-0000-0000-000000000000') throw new Error('Set CLOUDFLARE_D1_DATABASE_ID to your created D1 database ID.');
+const index = await readFile('dist/zh-Hant/index.html','utf8');
+if (!index.includes(`rel="canonical" href="${siteUrl}/zh-Hant/"`) || index.includes('content="noindex, nofollow, noarchive"')) throw new Error('Build again with SITE_URL set; current output is not a production build for this domain.');
+config.vars.PUBLIC_ORIGIN = siteUrl;
+config.vars.ALLOWED_ORIGINS = siteUrl;
+config.vars.ENVIRONMENT = 'production';
+config.vars.SHARING_ENABLED = process.env.SHARING_ENABLED === 'true' ? 'true' : 'false';
+config.vars.MARKET_FETCH_ENABLED = process.env.MARKET_FETCH_ENABLED === 'false' ? 'false' : 'true';
+config.vars.TURNSTILE_SITE_KEY = process.env.TURNSTILE_SITE_KEY || '';
+if (config.vars.SHARING_ENABLED === 'true' && (!config.vars.TURNSTILE_SITE_KEY || /^[123]x000/.test(config.vars.TURNSTILE_SITE_KEY))) throw new Error('A real Turnstile site key is required. Set the corresponding Worker secret with wrangler secret put TURNSTILE_SECRET_KEY.');
+config.d1_databases[0].database_id = dbId;
+await writeFile('wrangler.deploy.json',JSON.stringify(config,null,2));
+console.log('Production domain, built SEO pages, D1 binding, origin allowlist, and protection settings validated. Remote secret availability still requires deployment verification.');
